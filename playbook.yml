@@ -1,2 +1,26 @@
 ---
 - hosts: all
+
+  tasks:
+    - name: update apt
+      sudo: True
+      action: command /usr/bin/apt-get update
+
+    - name: update apt cache
+      sudo: True
+      apt: update_cache=yes
+
+    #
+    # The N in MEAN
+    #
+    - name: add nodesource ppa
+      sudo: True
+      shell: curl -sL https://deb.nodesource.com/setup_4.x | bash -
+
+    - name: install nodejs
+      sudo: True
+      apt: name=nodejs state=latest
+
+    - name: update npm to latest
+      sudo: True
+      npm: name=npm global=yes state=latest
