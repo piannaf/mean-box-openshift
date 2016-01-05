@@ -12,18 +12,26 @@
     - name: import MongoDB public key
       sudo: True
       command: apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+      tags:
+        - mongodb
 
     - name: add MongoDB repository
       sudo: True
       shell: echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+      tags:
+        - mongodb
 
     - name: install MongoDB
       sudo: True
       apt: name=mongodb-org update-cache=yes
+      tags:
+        - mongodb
 
     - name: start MongoDB service
       sudo: True
       service: name=mongod state=started
+      tags:
+        - mongodb
 
     #
     # The N in MEAN
@@ -31,11 +39,17 @@
     - name: add nodesource ppa
       sudo: True
       shell: curl -sL https://deb.nodesource.com/setup_4.x | bash -
+      tags:
+        - nodejs
 
     - name: install nodejs
       sudo: True
       apt: name=nodejs state=latest
+      tags:
+        - nodejs
 
     - name: update npm to latest
       sudo: True
       npm: name=npm global=yes state=latest
+      tags:
+        - nodejs
