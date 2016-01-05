@@ -21,6 +21,10 @@
       sudo: True
       apt: name=mongodb-org update-cache=yes
 
+    - name: start MongoDB service
+      sudo: True
+      service: name=mongod state=started
+
     #
     # The N in MEAN
     #
