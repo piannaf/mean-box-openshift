@@ -7,6 +7,21 @@
       apt: update_cache=yes
 
     #
+    # The M in MEAN
+    #
+    - name: import MongoDB public key
+      sudo: True
+      command: apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+
+    - name: add MongoDB repository
+      sudo: True
+      shell: echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+
+    - name: install MongoDB
+      sudo: True
+      apt: name=mongodb-org update-cache=yes
+
+    #
     # The N in MEAN
     #
     - name: add nodesource ppa
