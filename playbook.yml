@@ -48,8 +48,30 @@
       tags:
         - nodejs
 
-    - name: update npm to latest
+    - name: ensure npm 2.x for anguar-fullstack
       sudo: True
-      npm: name=npm global=yes state=latest
+      npm: name=npm version=latest-2 global=yes state=present
       tags:
         - nodejs
+
+    #
+    # The E and A in MEAN
+    #
+    - name: install git for bower
+      sudo: True
+      apt: name=git state=present
+      tags:
+        - angular
+        - express
+
+    - name: install Yeoman angular-fullstack generator
+      sudo: True
+      npm: name={{ item }} global=yes state=present
+      with_items:
+        - yo
+        - grunt-cli
+        - bower
+        - generator-angular-fullstack
+      tags:
+        - angular
+        - express
