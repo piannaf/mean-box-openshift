@@ -57,9 +57,16 @@
     #
     # The E and A in MEAN
     #
-    - name: install git for bower
+    - name: install git for bower install
       sudo: True
       apt: name=git state=present
+      tags:
+        - angular
+        - express
+
+    - name: install OpenShift Client (rhc)
+      sudo: True
+      gem: name=rhc user_install=no state=latest
       tags:
         - angular
         - express
