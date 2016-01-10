@@ -2,9 +2,13 @@
 - hosts: all
 
   tasks:
-    - name: update apt cache
+    - name: install git
       sudo: True
-      apt: update_cache=yes
+      apt: name=git update_cache=yes state=present
+
+    - name: install OpenShift Client (rhc)
+      sudo: True
+      gem: name=rhc user_install=no state=latest
 
     #
     # The M in MEAN
@@ -48,37 +52,23 @@
       tags:
         - nodejs
 
-    - name: ensure npm 2.x for anguar-fullstack
+    - name: update npm
       sudo: True
-      npm: name=npm version=latest-2 global=yes state=present
+      npm: name=npm global=yes state=latest
       tags:
         - nodejs
 
     #
     # The E and A in MEAN
     #
-    - name: install git for bower install
-      sudo: True
-      apt: name=git state=present
-      tags:
-        - angular
-        - express
 
-    - name: install OpenShift Client (rhc)
-      sudo: True
-      gem: name=rhc user_install=no state=latest
-      tags:
-        - angular
-        - express
-
-    - name: install Yeoman angular-fullstack generator
+    - name: install MEAN.io
       sudo: True
       npm: name={{ item }} global=yes state=present
       with_items:
-        - yo
-        - grunt-cli
+        - gulp
         - bower
-        - generator-angular-fullstack
+        - mean-cli
       tags:
         - angular
         - express
