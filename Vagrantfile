@@ -13,4 +13,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ansible.playbook = "playbook.yml"
     ansible.raw_arguments = ENV['ANSIBLE_ARGS']
   end
+
+  #
+  # MEAN Stack exposed through port 3000 by default
+  #
+  config.vm.network "forwarded_port", guest: 3000, host: 3000
 end

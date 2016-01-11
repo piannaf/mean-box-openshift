@@ -32,6 +32,7 @@ Designed to run [MEAN.io applications on OpenShift](http://learn.mean.io/#mean-s
 ### Vagrant
 - [Ansible Local Provisioner](https://docs.vagrantup.com/v2/provisioning/ansible_local.html)
 - [Ansible Options](https://docs.vagrantup.com/v2/provisioning/ansible_common.html)
+- [Forwarded Ports](https://docs.vagrantup.com/v2/networking/forwarded_ports.html)
 - [Installing a Box](https://docs.vagrantup.com/v2/getting-started/boxes.html)
 - [Latest Ubuntu](https://atlas.hashicorp.com/ubuntu/boxes/trusty64)
 
