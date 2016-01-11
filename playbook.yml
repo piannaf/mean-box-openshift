@@ -61,7 +61,6 @@
     #
     # The E and A in MEAN
     #
-
     - name: install MEAN.io
       sudo: True
       npm: name={{ item }} global=yes state=present
@@ -70,5 +69,9 @@
         - bower
         - mean-cli
       tags:
-        - angular
-        - express
+        - mean-cli
+
+    - name: workaround mean-cli bug if ~/.npm does not exist
+      file: path=/home/vagrant/.npm state=directory
+      tags:
+        - mean-cli

@@ -13,9 +13,10 @@ Designed to run [MEAN.io applications on OpenShift](http://learn.mean.io/#mean-s
 ### Ansible
 
 - [apt module](http://docs.ansible.com/ansible/apt_module.html)
+- [file module](http://docs.ansible.com/ansible/file_module.html)
 - [npm module](http://docs.ansible.com/ansible/npm_module.html)
-- [shell module](http://docs.ansible.com/ansible/shell_module.html)
 - [service module](http://docs.ansible.com/ansible/service_module.html)
+- [shell module](http://docs.ansible.com/ansible/shell_module.html)
 - [tags](http://docs.ansible.com/ansible/playbooks_tags.html)
 
 ### MongoDB
