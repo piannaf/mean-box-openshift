@@ -34,3 +34,5 @@ Designed to run [MEAN.io applications on OpenShift](http://learn.mean.io/#mean-s
 - [Ansible Options](https://docs.vagrantup.com/v2/provisioning/ansible_common.html)
 - [Installing a Box](https://docs.vagrantup.com/v2/getting-started/boxes.html)
 - [Latest Ubuntu](https://atlas.hashicorp.com/ubuntu/boxes/trusty64)
+
+The installation of nodejs dependencies for MEAN Stack requires a lot of memory. This machine only uses 512kB memory which is not enough. [Create swap space](https://gist.github.com/shovon/9dd8d2d1a556b8bf9c82) of 1GB allows "npm install" to complete successfully.
